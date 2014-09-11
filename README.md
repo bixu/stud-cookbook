@@ -26,14 +26,14 @@ node.default[:stud][:options][:backend] = '[*]:443'
 # Add any other stud options here. Options have the same names as the parameters in stud.conf, under the
 # [:stud][:options] namespace and have (we hope) reasonably sane defaults
 
-include_recipe 'stud'
-
-cookbook_file node[:stud][:pemfile_path] do
-  source 'certs.pem'
+cookbook_file node[:stud][:pemfile_path] do    # note that you need to write your .pem key
+  source 'certs.pem'                           # before you call this public cookbook 
   owner 'root'
   group 'root'
   mode '0600'
 end
+
+include_recipe 'stud'
 ```
 
 # Limitations
