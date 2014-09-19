@@ -11,9 +11,9 @@ A cookbook to install stud (the [Scalable TLS Unwrapping Daemon](https://github.
 
 * Note that with the current version of stud, chroot does not work correctly with daemonize within a zone. A (hackish) workaround exists, but it has to be executed every time the system starts up:
 
-``
+```
 # mkdir -p /var/chroot/stud/dev && touch /var/chroot/stud/dev/null && mount -F lofs /dev/null /var/chroot/stud/dev/null
-``
+```
 
 # Sample Usage
 
