@@ -16,6 +16,7 @@ A cookbook to install stud (the [Scalable TLS Unwrapping Daemon](https://github.
 ```
 
 # Sample Usage
+Use a 'wrapper cookbook' to configure attributes specific to your org, and to securely create certificate files:
 
 ```ruby
 node.default[:stud][:config_dir] = '/etc/stud'
