@@ -11,13 +11,13 @@ package 'stud' do
 end
 
 directory node[:stud][:config_dir] do
-  mode '0600'
+  mode '0700'
   user 'root'
   group 'root'
 end
 
 template "#{node[:stud][:config_dir]}/stud.conf" do
-  mode '0600'
+  mode '0700'
   user 'root'
   group 'root'
   source 'stud.conf.erb'
