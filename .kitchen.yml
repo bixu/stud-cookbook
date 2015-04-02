@@ -1,0 +1,24 @@
+---
+driver_plugin: joyent
+driver_config:
+  joyent_username: <%= ENV['MANTA_USER'] %>
+  joyent_keyfile: "<%= ENV['HOME'] %>/.ssh/id_rsa"
+  joyent_keyname: <%= ENV['MANTA_KEY_ID'] %>
+  joyent_url: <%= ENV['JOYENT_API_URL'] %>
+
+platforms:
+- name: smartos_base64_1430
+  driver_config:
+    joyent_image_id: 62f148f8-6e84-11e4-82c5-efca60348b9f
+    joyent_flavor_id: g3-highcpu-4-smartos
+  provisioner:
+    name: chef_zero
+    sudo: true
+    require_chef_omnibus: true
+    chef_omnibus_url: https://raw.github.com/wanelo-chef/chef-bootstrap/master/latest.sh
+
+suites:
+  - name: chef
+    data_bags_path: "<%= ENV['HOME'] %>/toolbox/chef/data_bags"
+    run_list:
+      - recipe[stud::default]

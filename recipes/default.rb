@@ -24,6 +24,14 @@ template "#{node[:stud][:config_dir]}/stud.conf" do
   notifies :restart, "service[stud]", :delayed
 end
 
+template "#{node[:stud][:pemfile_path]}" do
+  mode '0700'
+  user 'root'
+  group 'root'
+  source 'stud.pem.erb'
+  notifies :restart, "service[stud]", :delayed
+end
+
 smf 'stud' do
   start_command "#{node[:stud][:install_prefix_root]}/bin/stud --config #{node[:stud][:config_dir]}/stud.conf"
   ignore ['core', 'signal']

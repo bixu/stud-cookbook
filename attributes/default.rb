@@ -1,7 +1,10 @@
 default[:stud][:user] = "root"
 default[:stud][:install_prefix_root] = "/opt/local"
 default[:stud][:config_dir] = "/opt/local/etc/stud"
-default[:stud][:pemfile_path] = "/opt/local/etc/stud/certs.pem"
+
+# you should override [:stud][:pemfile_path] with the path to a private .pem 
+# file written by a private glue/wrapper cookbook:
+default[:stud][:pemfile_path] = "/opt/local/etc/stud/example.pem"
 
 # Encryption options
 default[:stud][:options][:tls] = true
