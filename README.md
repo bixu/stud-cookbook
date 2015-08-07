@@ -40,7 +40,7 @@ include_recipe 'stud'
 # Tests
 
 ```
-git clone git@github.com:yetu/stud-cookbook.git
+git clone git@github.com:bixu/stud-cookbook.git
 cd stud-cookbook
 gem install test-kitchen
 gem install kitchen-joyent
